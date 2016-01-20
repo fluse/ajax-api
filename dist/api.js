@@ -9976,7 +9976,7 @@ Api.prototype = {
         });
     }
 };
-
-module.exports = window.Api = Api;
+window.Api = Api;
+module.exports = Api;
 
 },{"extend":1,"jquery":2}]},{},[3]);
