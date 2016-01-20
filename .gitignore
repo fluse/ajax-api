@@ -1,0 +1,6 @@
+.DS_Store
+.git
+node_modules
+doc/
+bower_components
+npm-debug.log
