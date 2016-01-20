@@ -1,6 +1,6 @@
 /* globals  */
 
-var ajax = require('jquery/src/ajax');
+var ajax = require('jquery').ajax;
 var extend = require('extend');
 
 'use strict';
