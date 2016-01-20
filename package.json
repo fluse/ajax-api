@@ -25,5 +25,5 @@
   "scripts": {
     "build": "cd scripts/ && sh browserify.sh"
   },
-  "main": "dist/api.js"
+  "main": "src/api.js"
 }
