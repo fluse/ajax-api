@@ -1,4 +1,6 @@
-# Rest like Client Calls
+# Client API
+
+Rest like client api calls
 
 ## Install
 
@@ -13,7 +15,7 @@ dependencies:
 ## Use
 
 ```javascript
-var Api = require('ajaxApi');
+var Api = require('client-api');
 ```
 
 ## Create
@@ -26,20 +28,33 @@ var api = new Api(settings);
 
 ```javascript
 var settings = {
-    token: String,
+    token: '32digits',
     version: 'v1',
     baseName: '/api/',
     dataType: 'json'
 }
-
-// http://domain.tld/{baseName}/{version}/
 ```
+
+| name        | type           | description  |
+| ------------- |:-------------:| :---------|
+| token      | String | server authorization with token |
+| version      | String      |   api version |
+| baseName | String      |   base url without domain.tld |
+| dataType | String      |    data format |
 
 ## Calls
 
 ```javascript
 api(method, path, params, data, callback);
 ```
+
+| name        | type           | description  |
+| ------------- |:-------------:| :---------|
+| method      | String | get, post, put, delete, path |
+| path      | String      |   api version |
+| params | Object      |   set maximal video amount |
+| data | Object      |    option on get and delete |
+| callback | Function  |    recieving function |
 
 ### GET
 ```javascript
