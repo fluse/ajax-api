@@ -50,5 +50,5 @@ Api.prototype = {
         });
     }
 };
-window.Api = Api;
+if (typeof window !== 'undefined') window.Api = Api;
 module.exports = Api;
