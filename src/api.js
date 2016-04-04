@@ -1,6 +1,6 @@
 /* globals  */
 
-var ajax = require('jquery').ajax;
+var request = require('superagent');
 var extend = require('extend');
 
 'use strict';
@@ -33,21 +33,15 @@ Api.prototype = {
         var cb = arguments[arguments.length - 1];
         var self = this;
 
-        ajax({
-            type: method,
-            url: url,
-            dataType: this.settings.dataType,
-            data: (typeof data === 'object') ? data : {},
-            headers: {
-                'Authorization': 'Basic ' + this.settings.token
-            },
-            success: function(response) {
-                cb(response.error, response.result);
-            },
-            error: function(err) {
-                cb(err, null);
-            }
-        });
+        request(method, url)
+            .set('Accept', 'application/json')
+            .set('Authorization', 'Basic ' + this.settings.token)
+            .send((typeof data === 'object') ? data : {}).end(function (err, res) {
+                if (err) {
+                    return cb(err, null);
+                }
+                cb(res.body.error, res.body.result);
+            });
     }
 };
 if (typeof window !== 'undefined') window.Api = Api;
