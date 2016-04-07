@@ -1,5 +1,7 @@
 # Client API
 
+[![Donate](https://img.shields.io/badge/donate-%20%E2%9D%A4%20-green.svg)](https://www.paypal.me/schauf)
+
 Rest like client api calls
 
 ## Install
