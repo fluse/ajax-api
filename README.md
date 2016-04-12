@@ -11,7 +11,7 @@ Rest like client api calls
 ```
 
 dependencies:
- - [jQuery](https://github.com/jquery/jquery)
+ - [superagend](https://github.com/visionmedia/superagent)
  - [node-extend](https://github.com/justmoon/node-extend)
 
 ## Use
