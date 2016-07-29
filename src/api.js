@@ -33,7 +33,7 @@ Api.prototype = {
         var cb = arguments[arguments.length - 1];
         var self = this;
 
-        request(method, url)
+        return request(method, url)
             .set('Accept', 'application/json')
             .set('Authorization', 'Basic ' + this.settings.token)
             .send((typeof data === 'object') ? data : {})
