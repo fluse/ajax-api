@@ -3,7 +3,7 @@
   "author": "Holger Schauf",
   "website": "",
   "private": false,
-  "version": "0.1.9",
+  "version": "0.1.10",
   "engines": {
     "node": "4.2.0"
   },
