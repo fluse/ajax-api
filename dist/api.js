@@ -1588,7 +1588,8 @@ var Api = function Api(settings) {
         token: null,
         version: 'v1',
         baseName: '/api/',
-        dataType: 'json'
+        dataType: 'json',
+        timeout: 5000
     }, settings);
 
     return this.call.bind(this);
@@ -1610,7 +1611,9 @@ Api.prototype = {
         var cb = arguments[arguments.length - 1];
         var self = this;
 
-        request(method, url).set('Accept', 'application/json').set('Authorization', 'Basic ' + this.settings.token).send((typeof data === 'undefined' ? 'undefined' : _typeof(data)) === 'object' ? data : {}).end(function (err, res) {
+        return request(method, url).timeout(this.settings.timeout).set('Accept', 'application/json').set('Authorization', 'Basic ' + this.settings.token).send((typeof data === 'undefined' ? 'undefined' : _typeof(data)) === 'object' ? data : {}).on('error', function (err) {
+            cb(err, null);
+        }).end(function (err, res) {
             if (err) {
                 return cb(err, null);
             }

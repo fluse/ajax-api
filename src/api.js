@@ -11,7 +11,8 @@ var Api = function (settings) {
         token: null,
         version: 'v1',
         baseName: '/api/',
-        dataType: 'json'
+        dataType: 'json',
+        timeout: 5000
     }, settings);
 
     return this.call.bind(this);
@@ -34,6 +35,7 @@ Api.prototype = {
         var self = this;
 
         return request(method, url)
+            .timeout(this.settings.timeout)
             .set('Accept', 'application/json')
             .set('Authorization', 'Basic ' + this.settings.token)
             .send((typeof data === 'object') ? data : {})
